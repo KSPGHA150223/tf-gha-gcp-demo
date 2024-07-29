@@ -23,6 +23,6 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
 
-  metadata_startup_script = "#!/bin/bash\n\
-  echo 'Hello, World!' > /var/www/html/index.html"
+  # metadata_startup_script = "#!/bin/bash\n\
+  # echo 'Hello, World!' > /var/www/html/index.html"
 }
