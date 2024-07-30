@@ -1,6 +1,6 @@
 provider "google" {
-  # credentials = jsondecode(var.gcp_service_account_key)
-  credentials = file(var.credentials_file)
+  credentials = jsondecode(var.gcp_service_account_key)
+  # credentials = file(var.credentials_file)
   project     = var.project_id
   region      = var.region
 }
@@ -23,6 +23,9 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
 
-  # metadata_startup_script = "#!/bin/bash\n\
-  # echo 'Hello, World!' > /var/www/html/index.html"
+  metadata_startup_script =  <<-EOF
+    #!/bin/bash\n\
+    echo 'Hello, World!' > /var/www/html/index.html
+    EOF
+
 }
